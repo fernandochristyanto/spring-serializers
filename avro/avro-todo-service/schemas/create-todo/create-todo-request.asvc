@@ -1,0 +1,54 @@
+{
+  "type": "record",
+  "name": "CreateTodoRequest",
+  "namespace": "com.fernandochristyanto.todoservice.dto.createtodo",
+  "fields": [
+    {
+      "name": "title",
+      "type": "string"
+    },
+    {
+      "name": "description",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    {
+      "name": "createdAt",
+      "type": "string"
+    },
+    {
+      "name": "tasks",
+      "type": {
+        "type": "array",
+        "items": {
+          "name": "Task",
+          "type": "record",
+          "fields": [
+            {
+              "name": "title",
+              "type": "string"
+            },
+            {
+              "name": "description",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "name": "deadline",
+              "type": "string"
+            },
+            {
+              "name": "isImportant",
+              "type": "boolean",
+              "default": "true"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
