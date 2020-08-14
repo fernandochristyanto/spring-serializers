@@ -44,7 +44,7 @@
             {
               "name": "isImportant",
               "type": "boolean",
-              "default": "true"
+              "default": true
             }
           ]
         }

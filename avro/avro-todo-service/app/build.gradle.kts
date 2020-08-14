@@ -1,5 +1,9 @@
 description = "app"
 
+apply {
+    from(rootDir.absolutePath + "/gradle-scripts/avro.gradle")
+}
+
 buildscript {
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:2.3.1.RELEASE")
@@ -39,5 +43,11 @@ springBoot {
 tasks.getByName<Jar>("jar") {
     manifest {
         attributes["Main-Class"] = "com.fernandochristyanto.todoservice.TodoServiceApplication"
+    }
+}
+
+sourceSets {
+    main {
+        java.srcDir("src/main/generated-avro")
     }
 }

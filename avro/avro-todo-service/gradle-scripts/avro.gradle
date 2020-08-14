@@ -1,0 +1,40 @@
+import groovy.io.FileType
+
+def avroToolsVersion = "1.10.0"
+def taskGroup = "build avro"
+def externalLibsFolderPath = "${rootDir.absolutePath}/libs"
+def avroToolsJarPath = "${externalLibsFolderPath}/avro-tools-${avroToolsVersion}.jar"
+
+task downloadAvroTools {
+    group(taskGroup)
+
+    doLast {
+        if (!file(avroToolsJarPath).exists()) {
+            println("Downloading avro-tools into ${avroToolsJarPath}")
+            ant.get(dest: avroToolsJarPath,
+                    src: "https://repo1.maven.org/maven2/org/apache/avro/avro-tools/${avroToolsVersion}/avro-tools-${avroToolsVersion}.jar")
+        }
+    }
+}
+
+def avroSchemasFolderPath = "${rootDir.absolutePath}/avro-schemas"
+def avroBuildDestPath =  "${projectDir.absolutePath}/src/main/generated-avro"
+
+task executeAvroTools {
+    group(taskGroup)
+
+    dependsOn jar, downloadAvroTools
+    doLast {
+        // Recursively look for avro schemas
+        def schemaFiles = []
+        new File(avroSchemasFolderPath).eachFileRecurse(FileType.FILES) { file ->
+            schemaFiles << file
+        }
+
+        def execArgs = [avroToolsJarPath, "compile", "schema"] + schemaFiles + [avroBuildDestPath]
+        javaexec {
+            main = "-jar"
+            args = execArgs
+        }
+    }
+}
