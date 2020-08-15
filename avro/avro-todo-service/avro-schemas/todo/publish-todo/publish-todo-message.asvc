@@ -1,0 +1,12 @@
+{
+  "type": "record",
+  "name": "PublishTodoMessage",
+  "doc": "Message containing the details of a todo including all it's tasks",
+  "namespace": "com.fernandochristyanto.todoservice.dto.publishtodo",
+  "fields": [
+    {
+      "name": "id",
+      "type": "long"
+    }
+  ]
+}

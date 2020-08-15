@@ -1,25 +1,17 @@
 {
   "type": "record",
   "name": "CreateTodoRequest",
+  "doc": "Payload for create todo endpoint - POST /todos",
   "namespace": "com.fernandochristyanto.todoservice.dto.createtodo",
   "fields": [
     {
       "name": "title",
-      "type": "string"
-    },
-    {
-      "name": "description",
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    {
-      "name": "createdAt",
+      "doc": "Title of the todo",
       "type": "string"
     },
     {
       "name": "tasks",
+      "doc": "The tasks that this todo will have",
       "type": {
         "type": "array",
         "items": {
@@ -28,10 +20,12 @@
           "fields": [
             {
               "name": "title",
+              "doc": "Title of the task",
               "type": "string"
             },
             {
               "name": "description",
+              "doc": "Description of the task",
               "type": [
                 "null",
                 "string"
@@ -39,16 +33,19 @@
             },
             {
               "name": "deadline",
+              "doc": "Deadline of the task",
               "type": "string"
             },
             {
               "name": "isImportant",
+              "doc": "Marks whether the completion of this task is mandatory",
               "type": "boolean",
               "default": true
             }
           ]
         }
-      }
+      },
+      "default": []
     }
   ]
 }

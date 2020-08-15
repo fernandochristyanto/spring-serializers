@@ -1,0 +1,45 @@
+{
+  "type": "record",
+  "name": "TaskDTO",
+  "doc": "Task DTO",
+  "namespace": "com.fernandochristyanto.todoservice.dto",
+  "fields": [
+    {
+      "name": "id",
+      "type": "long"
+    },
+    {
+      "name": "todoId",
+      "type": "long"
+    },
+    {
+      "name": "title",
+      "doc": "Title of the todo",
+      "type": "string"
+    },
+    {
+      "name": "description",
+      "doc": "Description of the todo",
+      "type": "string"
+    },
+    {
+      "name": "isImportant",
+      "doc": "Marks whether the completion of this task is mandatory",
+      "type": "boolean"
+    },
+    {
+      "name": "deadline",
+      "doc": "Deadline of the task",
+      "type": "string"
+    },
+    {
+      "name": "completed",
+      "doc": "Whether this task is already completed or not",
+      "type": "boolean"
+    },
+    {
+      "name": "createdAt",
+      "type": "string"
+    }
+  ]
+}

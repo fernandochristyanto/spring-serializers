@@ -51,3 +51,7 @@ sourceSets {
         java.srcDir("src/main/generated-avro")
     }
 }
+
+tasks.named("build") {
+    dependsOn("executeAvroTools")
+}
