@@ -18,7 +18,7 @@ task downloadAvroTools {
 }
 
 def avroSchemasFolderPath = "${rootDir.absolutePath}/avro-schemas"
-def avroBuildDestPath =  "${projectDir.absolutePath}/src/main/generated-avro"
+def avroBuildDestPath = "${projectDir.absolutePath}/src/main/generated-avro"
 
 task executeAvroTools {
     group(taskGroup)
@@ -31,7 +31,9 @@ task executeAvroTools {
             schemaFiles << file
         }
 
-        def execArgs = [avroToolsJarPath, "compile", "schema"] + schemaFiles + [avroBuildDestPath]
+        def execArgs = [avroToolsJarPath, "compile", "-string", "schema"] +
+                schemaFiles +
+                [avroBuildDestPath]
         javaexec {
             main = "-jar"
             args = execArgs
