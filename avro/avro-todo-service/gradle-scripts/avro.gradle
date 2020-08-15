@@ -1,5 +1,3 @@
-import groovy.io.FileType
-
 def avroToolsVersion = "1.10.0"
 def taskGroup = "build avro"
 def externalLibsFolderPath = "${rootDir.absolutePath}/libs"
@@ -25,15 +23,14 @@ task executeAvroTools {
 
     dependsOn jar, downloadAvroTools
     doLast {
-        // Recursively look for avro schemas
-        def schemaFiles = []
-        new File(avroSchemasFolderPath).eachFileRecurse(FileType.FILES) { file ->
-            schemaFiles << file
-        }
+        def avroFiles = [
+                "${avroSchemasFolderPath}/todo/task.asvc",
+                "${avroSchemasFolderPath}/todo/todo.asvc",
+                "${avroSchemasFolderPath}/todo/create-todo/create-todo-request.asvc",
+                "${avroSchemasFolderPath}/todo/publish-todo/publish-todo-message.asvc",
+        ]
 
-        def execArgs = [avroToolsJarPath, "compile", "-string", "schema"] +
-                schemaFiles +
-                [avroBuildDestPath]
+        def execArgs = [avroToolsJarPath, "compile", "-string", "schema"] + avroFiles + [avroBuildDestPath]
         javaexec {
             main = "-jar"
             args = execArgs

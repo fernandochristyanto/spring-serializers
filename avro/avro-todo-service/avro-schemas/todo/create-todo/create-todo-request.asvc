@@ -10,14 +10,6 @@
       "type": "string"
     },
     {
-      "name": "description",
-      "doc": "Description of the todo",
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    {
       "name": "tasks",
       "doc": "The tasks that this todo will have",
       "type": {

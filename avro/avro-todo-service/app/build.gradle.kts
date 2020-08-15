@@ -24,7 +24,7 @@ dependencies {
     implementation(Libs.kotlin_logging)
     implementation(Libs.springbootstarter_actuator)
     implementation(Libs.springbootstarter_web)
-//    implementation(Libs.jackson_module_kotlin)
+    implementation(Libs.jackson_module_kotlin)
     runtimeOnly(Libs.RuntimeOnly.springboot_devtools)
 
     // Kafka

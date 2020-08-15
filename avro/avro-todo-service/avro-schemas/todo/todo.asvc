@@ -1,0 +1,35 @@
+{
+  "type": "record",
+  "name": "TodoDTO",
+  "doc": "Todo DTO",
+  "namespace": "com.fernandochristyanto.todoservice.dto",
+  "aliases": [
+    "Todo"
+  ],
+  "fields": [
+    {
+      "name": "id",
+      "type": "long"
+    },
+    {
+      "name": "title",
+      "doc": "Title of the todo",
+      "type": "string"
+    },
+    {
+      "name": "description",
+      "doc": "Description of the todo",
+      "type": "string"
+    },
+    {
+      "name": "tasks",
+      "type": {
+        "type": "array",
+        "items": {
+          "type": "com.fernandochristyanto.todoservice.dto.TaskDTO"
+        },
+        "java-class": "java.util.List"
+      }
+    }
+  ]
+}
