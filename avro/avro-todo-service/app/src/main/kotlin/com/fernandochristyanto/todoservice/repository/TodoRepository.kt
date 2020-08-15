@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component
 class TodoRepository {
     private val todos: MutableList<Todo> = ArrayList()
 
-    fun create(todo: Todo) {
+    fun save(todo: Todo) {
         todos.add(todo)
     }
 
