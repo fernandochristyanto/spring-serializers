@@ -1,9 +1,7 @@
 package com.fernandochristyanto.todoservice.config
 
 import io.confluent.kafka.serializers.AbstractKafkaAvroSerDeConfig
-import io.confluent.kafka.serializers.KafkaAvroDeserializer
 import io.confluent.kafka.serializers.KafkaAvroSerializer
-import io.confluent.kafka.serializers.KafkaAvroSerializerConfig
 import org.apache.kafka.clients.producer.ProducerConfig
 import org.apache.kafka.common.serialization.StringSerializer
 import org.springframework.beans.factory.annotation.Value
@@ -26,10 +24,7 @@ class KafkaProducerConfiguration {
         config[ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG] = StringSerializer::class.java
         config[ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG] = KafkaAvroSerializer::class.java
         config[AbstractKafkaAvroSerDeConfig.SCHEMA_REGISTRY_URL_CONFIG] = "http://192.168.99.3:8085"
-        /**
-         * From apache kafka config reference (https://kafka.apache.org/documentation/#producerconfigs):
-         * Users should generally prefer the "retry" count config unset and instead use delivery.timeout.ms to control retry behavior.
-         */
+
         return DefaultKafkaProducerFactory<Any, Any>(config)
     }
 }

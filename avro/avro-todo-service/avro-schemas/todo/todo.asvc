@@ -15,7 +15,16 @@
       "name": "title",
       "doc": "Title of the todo",
       "type": "string"
+    },
+    {
+      "name": "tasks",
+      "type": {
+        "type": "array",
+        "items": {
+          "type": "com.fernandochristyanto.todoservice.dto.TaskDTO"
+        },
+        "java-class": "java.util.List"
+      }
     }
-
   ]
 }

@@ -21,10 +21,10 @@ class TodoService(private val todoRepository: TodoRepository, private val kafkaT
 
         // Convert to avro-generated message
         val publishTodoMessage = PublishTodoMessage().run {
-            this.todo = TodoDTO(todo.id!!, todo.title
-//                    todo.tasks.map {
-//                        TaskDTO(it.id!!, it.todoId, it.title, it.description, it.isImportant, it.deadline.toString(), it.completed, it.createdAt.toString())
-//                    }
+            this.todo = TodoDTO(todo.id!!, todo.title,
+                    todo.tasks.map {
+                        TaskDTO(it.id!!, it.todoId, it.title, it.description, it.isImportant, it.deadline.toString(), it.completed, it.createdAt.toString())
+                    }
             )
             return@run this
         }
