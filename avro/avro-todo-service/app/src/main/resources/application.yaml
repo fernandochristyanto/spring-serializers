@@ -1,0 +1,45 @@
+server:
+  port: 8080
+spring:
+  profiles:
+    active: dev
+  application:
+    name: user-service
+  kafka:
+    bootstrap-servers:
+    properties:
+      schema-registry-url:
+    consumer:
+      group-id: my-consumer-group
+      auto-offset-reset: latest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+      properties:
+        interceptor-classes: io.confluent.monitoring.clients.interceptor.MonitoringConsumerInterceptor
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+      properties:
+        interceptor-classes: io.confluent.monitoring.clients.interceptor.MonitoringConsumerInterceptor
+    template:
+      default-topic:
+
+kafka-topic:
+  todos:
+    name: todos
+    partition-count: 1
+    replication-factor: 1
+
+key:
+  converter:
+    schema:
+      registry:
+        url: http://192.168.99.3:9092
+value:
+  converter:
+    schema:
+      registry:
+        url: http://192.168.99.3:9092
+schema:
+  registry:
+    url: http://192.168.99.3:9092
