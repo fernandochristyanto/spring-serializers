@@ -13,6 +13,7 @@ plugins {
     id("org.jetbrains.kotlin.plugin.noarg") version PluginVersions.KOTLIN_PLUGIN_NOARG apply false
     kotlin("jvm") version PluginVersions.KOTLIN_JVM apply false
     kotlin("plugin.spring") version PluginVersions.KOTLIN_PLUGIN_SPRING apply false
+    kotlin("kapt") version PluginVersions.KOTLIN_KAPT apply false
 }
 
 allprojects {

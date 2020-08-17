@@ -21,7 +21,7 @@ def avroBuildDestPath = "${projectDir.absolutePath}/src/main/generated-avro"
 task executeAvroTools {
     group(taskGroup)
 
-    dependsOn jar, downloadAvroTools
+    dependsOn downloadAvroTools
     doLast {
         def avroFiles = [
                 "${avroSchemasFolderPath}/todo/task.asvc",

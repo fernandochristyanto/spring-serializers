@@ -20,7 +20,7 @@
     {
       "name": "description",
       "doc": "Description of the todo",
-      "type": "string"
+      "type": ["null", "string"]
     },
     {
       "name": "isImportant",

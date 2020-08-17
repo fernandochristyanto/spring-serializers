@@ -5,8 +5,8 @@
   "namespace": "com.fernandochristyanto.todoservice.dto.publishtodo",
   "fields": [
     {
-      "name": "id",
-      "type": "long"
+      "name": "todo",
+      "type": "com.fernandochristyanto.todoservice.dto.TodoDTO"
     }
   ]
 }

@@ -17,11 +17,6 @@
       "type": "string"
     },
     {
-      "name": "description",
-      "doc": "Description of the todo",
-      "type": "string"
-    },
-    {
       "name": "tasks",
       "type": {
         "type": "array",

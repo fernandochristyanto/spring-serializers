@@ -15,6 +15,7 @@ plugins {
     id("io.spring.dependency-management")
     id("org.jetbrains.kotlin.plugin.noarg")
     kotlin("jvm")
+    kotlin("kapt")
     kotlin("plugin.spring")
 }
 
@@ -27,12 +28,16 @@ dependencies {
     implementation(Libs.jackson_module_kotlin)
     runtimeOnly(Libs.RuntimeOnly.springboot_devtools)
 
+    kapt(Libs.springboot_configuration_processor)
+
     // Kafka
     implementation(Libs.spring_kafka)
 
     // Avro
     implementation(Libs.apache_avro)
     implementation(Libs.kafka_avro_serializer)
+//    implementation(Libs.kafka_streams_avro_serde)
+    implementation(Libs.kafka_schema_registry_client)
 }
 
 springBoot {

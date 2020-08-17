@@ -1,0 +1,20 @@
+server:
+  port: 8080
+spring:
+  profiles:
+    active: dev
+  application:
+    name: user-service
+  kafka:
+    bootstrap-servers:
+    properties:
+      schema-registry-url:
+    consumer:
+      group-id:
+      auto-offset-reset:
+
+kafka-topic:
+  todos:
+    name: todos
+    partition-count: 1
+    replication-factor: 1
