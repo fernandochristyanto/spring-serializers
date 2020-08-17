@@ -17,13 +17,16 @@ class KafkaProducerConfiguration {
     @Value("\${spring.kafka.properties.schema-registry-url}")
     lateinit var schemaRegistryUrl: String
 
+    @Value("\${spring.kafka.bootstrap-servers}")
+    lateinit var bootstrapServers: String
+
     @Bean
     fun producerFactory(): ProducerFactory<*, *>? {
         val config: MutableMap<String, Any> = HashMap()
-        config[ProducerConfig.BOOTSTRAP_SERVERS_CONFIG] = "http://192.168.99.3:9092"
+        config[ProducerConfig.BOOTSTRAP_SERVERS_CONFIG] = bootstrapServers
         config[ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG] = StringSerializer::class.java
         config[ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG] = KafkaAvroSerializer::class.java
-        config[AbstractKafkaAvroSerDeConfig.SCHEMA_REGISTRY_URL_CONFIG] = "http://192.168.99.3:8085"
+        config[AbstractKafkaAvroSerDeConfig.SCHEMA_REGISTRY_URL_CONFIG] = schemaRegistryUrl
 
         return DefaultKafkaProducerFactory<Any, Any>(config)
     }

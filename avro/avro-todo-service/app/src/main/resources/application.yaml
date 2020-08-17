@@ -29,17 +29,3 @@ kafka-topic:
     name: todos
     partition-count: 1
     replication-factor: 1
-
-key:
-  converter:
-    schema:
-      registry:
-        url: http://192.168.99.3:9092
-value:
-  converter:
-    schema:
-      registry:
-        url: http://192.168.99.3:9092
-schema:
-  registry:
-    url: http://192.168.99.3:9092
