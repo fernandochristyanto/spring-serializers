@@ -10,19 +10,8 @@ spring:
     properties:
       schema-registry-url:
     consumer:
-      group-id: my-consumer-group
-      auto-offset-reset: latest
-      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
-      properties:
-        interceptor-classes: io.confluent.monitoring.clients.interceptor.MonitoringConsumerInterceptor
-    producer:
-      key-serializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
-      properties:
-        interceptor-classes: io.confluent.monitoring.clients.interceptor.MonitoringConsumerInterceptor
-    template:
-      default-topic:
+      group-id:
+      auto-offset-reset:
 
 kafka-topic:
   todos:
