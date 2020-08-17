@@ -45,7 +45,7 @@ services:
       - 9021:9021
       - 9022:9022
     environment:
-      # general settings
+      # General
       CONTROL_CENTER_BOOTSTRAP_SERVERS: kafka:9092
       CONTROL_CENTER_ZOOKEEPER_CONNECT: zookeeper:2181
       CONTROL_CENTER_REPLICATION_FACTOR: ${CONTROL_CENTER_REPLICATION_FACTOR}
@@ -54,23 +54,21 @@ services:
       CONTROL_CENTER_MONITORING_INTERCEPTOR_TOPIC_PARTITIONS: ${CONTROL_CENTER_MONITORING_INTERCEPTOR_TOPIC_PARTITIONS}
       CONTROL_CENTER_METRICS_TOPIC_REPLICATION: ${CONTROL_CENTER_METRICS_TOPIC_REPLICATION}
       CONTROL_CENTER_METRICS_TOPIC_PARTITIONS: ${CONTROL_CENTER_METRICS_TOPIC_PARTITIONS}
-      # Amount of heap to use for internal caches. Increase for better throughput
+      # Internal Caches Heap Size
       CONTROL_CENTER_STREAMS_CACHE_MAX_BYTES_BUFFERING: ${CONTROL_CENTER_STREAMS_CACHE_MAX_BYTES_BUFFERING}
       CONTROL_CENTER_STREAMS_CONSUMER_REQUEST_TIMEOUT_MS: ${CONTROL_CENTER_STREAMS_CONSUMER_REQUEST_TIMEOUT_MS}
       CONTROL_CENTER_STREAMS_NUM_STREAM_THREADS: ${CONTROL_CENTER_STREAMS_NUM_STREAM_THREADS}
-      # HTTP and HTTPS to Control Center UI
+      # Control Center UI
       CONTROL_CENTER_REST_LISTENERS: http://0.0.0.0:9021,https://0.0.0.0:9022
       PORT: 9021
       # Connect
       CONTROL_CENTER_CONNECT_CONNECT1_CLUSTER: http://connect:8083
-      # ksqlDB
+      # KsqlDB
       CONTROL_CENTER_KSQL_WIKIPEDIA_URL: http://ksqldb-server:8088
-      # Access ksqlDB server from a browser on your localhost
       CONTROL_CENTER_KSQL_WIKIPEDIA_ADVERTISED_URL: http://localhost:8088
       # Schema Registry
-      CONTROL_CENTER_SCHEMA_REGISTRY_SR1_URL: https://schemaregistry:8085
-      # Schema Registry
       CONTROL_CENTER_SCHEMA_REGISTRY_URL: schemaregistry:8085
+      CONTROL_CENTER_SCHEMA_REGISTRY_SR1_URL: https://schemaregistry:8085
   ####################################
   # App
   ####################################
