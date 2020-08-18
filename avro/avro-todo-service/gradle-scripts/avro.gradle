@@ -16,7 +16,7 @@ task downloadAvroTools {
 }
 
 def avroSchemasFolderPath = "${rootDir.absolutePath}/avro-schemas"
-def avroBuildDestPath = "${projectDir.absolutePath}/src/main/generated-avro"
+def avroBuildDestPath = "${project.buildDir.absolutePath}/generated/source/kapt/main"
 
 task executeAvroTools {
     group(taskGroup)
